@@ -5,7 +5,7 @@ pipeline {
         stage('SCM Checkout') {
             steps {
                 retry(3) {
-                    git branch: 'main', url: 'https://github.com/srijithyaparathna/4307-yaparathna'
+                    git branch: 'main', url: 'git@github.com:srijithyaparathna/4307-yaparathna.git'
                 }
             }
         }
@@ -23,8 +23,6 @@ pipeline {
                       sh "docker login -u srijith1998 -p '${srijith}'"
     // some block
                     }  
-
-
                 
             }
         }
