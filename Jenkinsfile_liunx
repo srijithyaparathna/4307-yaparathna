@@ -11,19 +11,26 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t 4307-yaparathna/nodeapp-cuban:${BUILD_NUMBER} .'
+                sh 'docker build -t srijith1998/nodeapp-cuban:${BUILD_NUMBER} .'
             }
         }
         stage('Login to Docker Hub') {
             steps {
-                withCredentials([string(credentialsId: 'samin-docker', variable: 'samindocker')]) {
-                    sh "docker login -u adomicarts -p '${samindocker}'"
-                }
+
+
+                  withCredentials([string(credentialsId: 'srijith', variable: 'srijith')]) {
+
+                      sh "docker login -u srijith1998 -p '${srijith}'"
+    // some block
+                    }  
+
+
+                
             }
         }
         stage('Push Image') {
             steps {
-                sh 'docker push adomicarts/nodeapp-cuban:${BUILD_NUMBER}'
+                sh 'docker push srijith1998/nodeapp-cuban:${BUILD_NUMBER}'
             }
         }
     }
