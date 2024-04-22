@@ -5,13 +5,13 @@ pipeline {
         stage('SCM Checkout') {
             steps {
                 retry(3) {
-                    git branch: 'main', url: 'https://github.com/HGSChandeepa/test-node'
+                    git branch: 'main', url: 'https://github.com/srijithyaparathna/4307-yaparathna'
                 }
             }
         }
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t adomicarts/nodeapp-cuban:${BUILD_NUMBER} .'
+                sh 'docker build -t 4307-yaparathna/nodeapp-cuban:${BUILD_NUMBER} .'
             }
         }
         stage('Login to Docker Hub') {
