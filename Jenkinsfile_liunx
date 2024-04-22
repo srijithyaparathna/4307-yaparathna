@@ -18,11 +18,13 @@ pipeline {
             steps {
 
 
-                  withCredentials([string(credentialsId: 'srijith', variable: 'srijith')]) {
+                    withCredentials([string(credentialsId: 'srijith', variable: 'srijith')]) {
 
-                      sh "docker login -u srijith1998 -p '${srijith}'"
-    // some block
-                    }  
+                            sh "docker login -u srijith1998 -p '${srijith}'"
+
+                }
+
+    
                 
             }
         }
